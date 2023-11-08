@@ -59,7 +59,6 @@ const Create: NextPage = () => {
                 type="text"
                 kind="text"
                 required
-                method="POST"
               ></Input>
               <span className="text-sm text-gray-600">
                 {errors.name?.message}

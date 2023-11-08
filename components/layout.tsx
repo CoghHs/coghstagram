@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { cls } from "../lib/client/utils";
+import nobg from "../image/nobg.png";
+import Image from "next/image";
 
 interface LayoutProps {
   title?: string;
@@ -22,7 +24,7 @@ export default function Layout({
   };
   return (
     <div>
-      <div className="bg-white w-full h-12 max-w-xl justify-center text-lg px-10 font-medium  fixed text-gray-800 border-b top-0  flex items-center">
+      <div className=" w-full h-12 max-w-xl  text-lg  font-medium  fixed text-gray-800 border-b top-0 z-50">
         {canGoBack ? (
           <button onClick={onClick} className="absolute left-4">
             <svg
@@ -42,18 +44,26 @@ export default function Layout({
           </button>
         ) : null}
         {title ? (
-          <span className={cls(canGoBack ? "mx-auto" : "", "")}>{title}</span>
+          <div className="flex items-center justify-between ">
+            <div>
+              <Image src={nobg} alt="logo" width={200} height={100} />
+            </div>
+            {/* <span className={cls(canGoBack ? "w-[120px] h-[40px]" : "", "")}>
+              {title}
+            </span> */}
+            <span className="text-center w-[120px] h-[40px]">🖤</span>
+          </div>
         ) : null}
       </div>
       <div className={cls("pt-12", hasTabBar ? "pb-24" : "")}>{children}</div>
       {hasTabBar ? (
-        <nav className="bg-white max-w-xl text-gray-700 border-t fixed bottom-0 w-full px-10 pb-5 pt-3 flex justify-between text-xs">
+        <nav className=" max-w-xl transition-colors shadow-lg rounded-2xl hover:bg-white hover:opacity-80 hover:text-black text-gray-700  fixed bottom-0 w-full px-10 pb-5 pt-3 flex justify-between text-xs">
           <Link href="/" legacyBehavior>
             <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
                 router.pathname === "/"
-                  ? "text-orange-500"
+                  ? "text-sky-500"
                   : "hover:text-gray-500 transition-colors"
               )}
             >
@@ -78,8 +88,8 @@ export default function Layout({
             <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
-                router.pathname === "/products/upload"
-                  ? "text-orange-500"
+                router.pathname === "/tweet/upload"
+                  ? "text-sky-500"
                   : "hover:text-gray-500 transition-colors"
               )}
             >
@@ -106,7 +116,7 @@ export default function Layout({
               className={cls(
                 "flex flex-col items-center space-y-2 ",
                 router.pathname === "/profile"
-                  ? "text-orange-500"
+                  ? "text-sky-500"
                   : "hover:text-gray-500 transition-colors"
               )}
             >
