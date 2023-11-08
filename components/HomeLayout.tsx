@@ -1,8 +1,7 @@
 type DataType = {
   id: number;
-  title: string;
+  name: string;
   content: string;
-  bg: number;
 };
 
 interface HomeLayoutProps {
@@ -18,9 +17,9 @@ export default function HomeLayout({ data }: HomeLayoutProps) {
           data?.map((item, index) => (
             <li
               key={`homeItem_${index}`}
-              className={`w-[90%] h-[300px] bg-slate-${item.bg} mx-auto blur-sm`}
+              className={`w-[90%] h-[300px] bg-slate-100 mx-auto blur-sm`}
             >
-              <h3>{item.title}</h3>
+              <h3>{item.name}</h3>
               <h3>{item.content}</h3>
             </li>
           ))}

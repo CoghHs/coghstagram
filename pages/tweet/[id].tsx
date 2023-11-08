@@ -32,7 +32,7 @@ const ItemDetail: NextPage = () => {
   const router = useRouter();
 
   const { data, mutate: boundMutate } = useSWR<ItemDetailResponse>(
-    router.query.id ? `/api/products/${router.query.id}` : null
+    router.query.id ? `/api/tweet/${router.query.id}` : null
   );
   const [toggleFav] = useMutation(`/api/tweet/${router.query.id}/fav`);
   const onFavClick = () => {
@@ -47,6 +47,7 @@ const ItemDetail: NextPage = () => {
           <div className="h-96 bg-slate-300" />
           <div className="flex cursor-pointer py-3 border-t border-b items-center space-x-3">
             <div className="w-12 h-12 rounded-full bg-slate-300" />
+
             <div>
               <p className="text-sm font-medium text-gray-700">
                 {data?.tweet?.user?.name}
@@ -63,7 +64,7 @@ const ItemDetail: NextPage = () => {
           </div>
           <div className="mt-5">
             <h1 className="text-3xl font-bold text-gray-900">
-              {data?.tweet?.name}
+              {data?.tweet?.content}
             </h1>
 
             <div className="flex items-center justify-between space-x-2">
@@ -96,7 +97,7 @@ const ItemDetail: NextPage = () => {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <h2 className="text-2xl font-bold text-gray-900">Similar items</h2>
           <div className=" mt-6 grid grid-cols-2 gap-4">
             {data?.relatedtweets.map((tweet) => (
@@ -106,7 +107,7 @@ const ItemDetail: NextPage = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </Layout>
   );

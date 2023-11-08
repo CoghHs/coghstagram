@@ -33,6 +33,7 @@ const Upload: NextPage = () => {
     useMutation<UploadTweetMutation>("/api/tweet");
   const onValid = (data: UploadTweetForm) => {
     if (loading) return;
+    console.log(data);
     uploadTweet(data);
   };
   useEffect(() => {
@@ -42,7 +43,7 @@ const Upload: NextPage = () => {
   }, [data, router]);
 
   return (
-    <Layout canGoBack title="Upload Product">
+    <Layout canGoBack hasTabBar title="Upload Product">
       <form onSubmit={handleSubmit(onValid)} className="p-4 space-y-4">
         <div>
           <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
@@ -63,6 +64,13 @@ const Upload: NextPage = () => {
             <input className="hidden" type="file" />
           </label>
         </div>
+        <Input
+          register={register("name", { required: true })}
+          required
+          kind="text"
+          name="name"
+          type="text"
+        />
         <Input
           register={register("content", { required: true })}
           required

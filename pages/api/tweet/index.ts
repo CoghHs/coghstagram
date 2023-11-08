@@ -4,6 +4,14 @@ import { ResponseType } from "../create-account";
 import { withIronSessionApiRoute } from "iron-session/next";
 import { sessionOption } from "../../../lib/server/sessionOption";
 
+declare module "iron-session" {
+  interface IronSessionData {
+    user?: {
+      id: number;
+    };
+  }
+}
+
 async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType>
@@ -25,13 +33,13 @@ async function handler(
   }
   if (req.method === "POST") {
     const {
-      body: { name },
+      body: { name, content },
       session: { user },
     } = req;
-    const product = await db.tweet.create({
+    const tweet = await db.tweet.create({
       data: {
         name,
-        content: "",
+        content,
         image: "xx",
         user: {
           connect: {
@@ -42,7 +50,7 @@ async function handler(
     });
     res.json({
       ok: true,
-      product,
+      tweet,
     });
   }
 }
