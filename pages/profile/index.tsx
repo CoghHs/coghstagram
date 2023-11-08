@@ -1,15 +1,21 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Layout from "../../components/layout";
+import useUser from "../../lib/client/useUser";
 
 const Profile: NextPage = () => {
+  const [data] = useUser();
+  console.log(data);
   return (
-    <Layout hasTabBar title="Cogh">
+    <Layout hasTabBar title="cogh">
       <div className="px-4">
+        <div></div>
         <div className="flex items-center mt-4 space-x-3">
           <div className="w-16 h-16 bg-slate-500 rounded-full" />
           <div className="flex flex-col">
-            <span className="font-medium text-gray-900">Steve Jebs</span>
+            <span className="font-medium text-gray-900">
+              {data?.profile.name}
+            </span>
             <Link legacyBehavior href="/profile/edit">
               <a className="text-sm text-gray-700">Edit profile &rarr;</a>
             </Link>

@@ -4,7 +4,7 @@ import { UseFormRegisterReturn } from "react-hook-form";
 
 interface InputProps {
   name: string;
-  kind?: "text" | "password" | "email";
+  kind?: "text" | "password" | "email" | "content";
   register: UseFormRegisterReturn;
   type: string;
   required: boolean;
@@ -51,6 +51,18 @@ export default function Input({
             {...register}
             type={type}
             placeholder="비밀번호"
+            className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500"
+          />
+        </div>
+      ) : null}
+      {kind === "content" ? (
+        <div className="rounded-md relative flex  items-center shadow-sm">
+          <input
+            id={name}
+            required={required}
+            {...register}
+            type={type}
+            placeholder="내용을 작성해주세요."
             className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500"
           />
         </div>

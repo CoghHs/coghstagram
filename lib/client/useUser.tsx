@@ -3,14 +3,13 @@ import { useEffect } from "react";
 import useSWR from "swr";
 
 export default function useUser() {
-  const { data, error } = useSWR("/api/user/me");
-
   const router = useRouter();
+  const { data, error, isValidating } = useSWR("/api/profile");
   useEffect(() => {
-    if (data && !data.ok) {
+    if (error) {
       router.replace("/login");
     }
-  }, [data, router]);
+  }, [error]);
 
-  return { user: data?.profile, isLoading: !data && !error };
+  return [data, isValidating];
 }

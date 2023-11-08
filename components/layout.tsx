@@ -24,7 +24,7 @@ export default function Layout({
   };
   return (
     <div>
-      <div className=" w-full h-12 max-w-xl  text-lg  font-medium  fixed text-gray-800 border-b top-0 z-50">
+      <div className=" w-full h-12 max-w-xl  text-lg  font-medium  fixed text-gray-800 top-0 z-50">
         {canGoBack ? (
           <button onClick={onClick} className="absolute left-4">
             <svg
@@ -44,14 +44,13 @@ export default function Layout({
           </button>
         ) : null}
         {title ? (
-          <div className="flex items-center justify-between ">
-            <div>
+          <div className="flex items-center justify-center ">
+            <div className="py-4">
               <Image src={nobg} alt="logo" width={200} height={100} />
             </div>
             {/* <span className={cls(canGoBack ? "w-[120px] h-[40px]" : "", "")}>
               {title}
             </span> */}
-            <span className="text-center w-[120px] h-[40px]">🖤</span>
           </div>
         ) : null}
       </div>
