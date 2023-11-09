@@ -44,9 +44,9 @@ const Upload: NextPage = () => {
 
   return (
     <Layout canGoBack hasTabBar title="Upload Product">
-      <form onSubmit={handleSubmit(onValid)} className="p-4 space-y-4">
+      <form onSubmit={handleSubmit(onValid)} className="p-4 space-y-4 mt-20">
         <div>
-          <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
+          <label className="w-full cursor-pointer text-gray-600 hover:border-black hover:text-black flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
             <svg
               className="h-12 w-12"
               stroke="currentColor"

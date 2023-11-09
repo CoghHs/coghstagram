@@ -16,22 +16,38 @@ async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType>
 ) {
-  if (req.method === "GET") {
-    const {
-      session: { user },
-    } = req;
-    if (!user?.id) {
-      return res.status(401).end();
+  {
+    if (req.method === "GET") {
+      const {
+        session: { user },
+      } = req;
+      if (!user?.id) {
+        return res.status(401).end();
+      }
+      const profile = await db.user.findUnique({
+        where: {
+          id: user.id,
+        },
+      });
+      res.json({
+        ok: true,
+        profile,
+      });
     }
-    const profile = await db.user.findUnique({
-      where: {
-        id: user.id,
-      },
-    });
-    res.json({
-      ok: true,
-      profile,
-    });
+    if (req.method === "POST") {
+      const { email, name } = req.body;
+      if (name) {
+        await db.user.update({
+          where: {
+            email,
+          },
+          data: {
+            name,
+          },
+        });
+      }
+    }
+    res.end();
   }
 }
 

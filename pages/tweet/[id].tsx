@@ -41,7 +41,7 @@ const ItemDetail: NextPage = () => {
     toggleFav({});
   };
   return (
-    <Layout canGoBack>
+    <Layout hasTabBar canGoBack>
       <div className="px-4  py-4">
         <div className="mb-8">
           <div className="h-96 bg-slate-300" />

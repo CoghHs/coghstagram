@@ -1,5 +1,11 @@
 import { SWRConfig } from "swr";
 import "../global.css";
+import useUser from "../lib/client/useUser";
+
+function CustomUser() {
+  const { user } = useUser();
+  return null;
+}
 
 export default function App({ Component, pageProps }: any) {
   return (
@@ -10,6 +16,7 @@ export default function App({ Component, pageProps }: any) {
       }}
     >
       <div className="w-full max-w-xl mx-auto">
+        <CustomUser />
         <Component {...pageProps} />
       </div>
     </SWRConfig>
