@@ -33,14 +33,14 @@ async function handler(
   }
   if (req.method === "POST") {
     const {
-      body: { name, content },
+      body: { name, content, photoId },
       session: { user },
     } = req;
     const tweet = await db.tweet.create({
       data: {
         name,
         content,
-        image: "xx",
+        image: photoId,
         user: {
           connect: {
             id: user?.id,

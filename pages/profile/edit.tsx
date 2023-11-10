@@ -15,6 +15,11 @@ interface IForm {
   formErrors?: string;
 }
 
+interface EditProfileResponse {
+  ok: boolean;
+  errer?: string;
+}
+
 const EditProfile: NextPage = () => {
   const { user } = useUser();
 
@@ -29,16 +34,43 @@ const EditProfile: NextPage = () => {
   useEffect(() => {
     if (user?.email) setValue("email", user?.email);
     if (user?.name) setValue("name", user?.name);
+    if (user?.avatar)
+      setAvatarPreview(
+        `https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${user?.avatar}/avatar`
+      );
   }, [user]);
-  const [editProfile, { loading }] = useMutation(`/api/profile`);
-  const onValid = ({ email, name, avatar }: IForm) => {
+  const [editProfile, { loading }] =
+    useMutation<EditProfileResponse>(`/api/profile`);
+  const onValid = async ({ email, name, avatar }: IForm) => {
     if (loading) return;
     if (email === "" && name === "") {
       return setError("formErrors", {
         message: "이름을 변경해주세요.",
       });
     }
-    editProfile({ email, name });
+    if (avatar && avatar.length > 0 && user?.id) {
+      const { uploadURL } = await (await fetch(`/api/files`)).json();
+      const form = new FormData();
+      form.append("file", avatar[0], user?.id + "");
+      const {
+        result: { id },
+      } = await (
+        await fetch(uploadURL, {
+          method: "POST",
+          body: form,
+        })
+      ).json();
+      editProfile({
+        email,
+        name,
+        avatarId: id,
+      });
+    } else {
+      editProfile({
+        email,
+        name,
+      });
+    }
   };
   const [avatarPreview, setAvatarPreview] = useState("");
   const avatar = watch("avatar");

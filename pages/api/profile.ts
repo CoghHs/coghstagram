@@ -35,7 +35,7 @@ async function handler(
       });
     }
     if (req.method === "POST") {
-      const { email, name } = req.body;
+      const { email, name, avatarId } = req.body;
       if (name) {
         await db.user.update({
           where: {
@@ -43,6 +43,16 @@ async function handler(
           },
           data: {
             name,
+          },
+        });
+      }
+      if (avatarId) {
+        await db.user.update({
+          where: {
+            email,
+          },
+          data: {
+            avatar: avatarId,
           },
         });
       }

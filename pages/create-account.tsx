@@ -6,7 +6,7 @@ import useMutation from "../lib/client/useMutation";
 import { useRouter } from "next/router";
 import smlogo from "../image/logo.png";
 import Image from "next/image";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Link from "next/link";
@@ -33,9 +33,6 @@ const Create: NextPage = () => {
     if (data?.status === 201) {
       toast.success(data?.message);
       router.push("/login");
-    }
-    if (data?.status === 400) {
-      toast.error(data?.message);
     }
   }, [data]);
   return (
@@ -115,6 +112,9 @@ const Create: NextPage = () => {
           <Link href="/login" legacyBehavior>
             <a className="text-sky-500 ml-1">로그인</a>
           </Link>
+        </div>
+        <div>
+          <Toaster />
         </div>
       </div>
     </div>

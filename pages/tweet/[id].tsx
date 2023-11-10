@@ -43,23 +43,34 @@ const ItemDetail: NextPage = () => {
   return (
     <Layout hasTabBar canGoBack>
       <div className="px-4  py-4">
-        <div className="mb-8">
-          <div className="h-96 bg-slate-300" />
+        <div className="mb-8 ">
+          {data?.tweet.image ? (
+            <img
+              src={`https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${data?.tweet.image}/public`}
+              className="h-96 bg-slate-300 "
+            />
+          ) : (
+            <div className="h-96 bg-slate-300" />
+          )}
           <div className="flex cursor-pointer py-3 border-t border-b items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-slate-300" />
+            {data?.tweet.user.avatar ? (
+              <img
+                src={`https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${data?.tweet.user.avatar}/avatar`}
+                className="w-12 h-12 rounded-full bg-slate-300"
+              />
+            ) : (
+              <div className="w-12 h-12 rounded-full bg-slate-300" />
+            )}
 
             <div>
               <p className="text-sm font-medium text-gray-700">
                 {data?.tweet?.user?.name}
               </p>
-              <Link
-                legacyBehavior
-                href={`/users/profiles/${data?.tweet?.user?.id}`}
-              >
+              {/* <Link legacyBehavior href={`/profiles/${data?.tweet?.user?.id}`}>
                 <a className="text-xs font-medium text-gray-500">
                   View profile &rarr;
                 </a>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="mt-5">

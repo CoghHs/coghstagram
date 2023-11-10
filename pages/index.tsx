@@ -4,8 +4,6 @@ import { NextPage } from "next";
 import HomeLayout from "../components/HomeLayout";
 import { Tweet } from "@prisma/client";
 import useSWR from "swr";
-import Item from "../components/Item";
-import tweet from "./api/tweet";
 
 interface TweetsResponse {
   ok: boolean;

@@ -8,9 +8,15 @@ const Profile: NextPage = () => {
   return (
     <Layout hasTabBar title="cogh">
       <div className="mt-20">
-        <div></div>
         <div className="flex items-center mt-4 space-x-3">
-          <div className="w-16 h-16 bg-slate-500 rounded-full" />
+          {user?.avatar ? (
+            <img
+              src={`https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${user?.avatar}/avatar`}
+              className="w-16 h-16 bg-slate-500 rounded-full"
+            />
+          ) : (
+            <div className="w-16 h-16 bg-slate-500 rounded-full" />
+          )}
           <div className="flex flex-col">
             <span className="font-medium text-gray-900">{user?.name}</span>
             <Link legacyBehavior href="/profile/edit">

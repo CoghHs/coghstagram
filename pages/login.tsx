@@ -5,7 +5,7 @@ import useMutation from "../lib/client/useMutation";
 import { useRouter } from "next/router";
 import smlogo from "../image/logo.png";
 import Image from "next/image";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Link from "next/link";
@@ -104,6 +104,9 @@ const Login: NextPage = () => {
           <Link href="/create-account" legacyBehavior>
             <a className="text-sky-500 ml-1">가입하기</a>
           </Link>
+        </div>
+        <div>
+          <Toaster />
         </div>
       </div>
     </div>
