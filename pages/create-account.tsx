@@ -102,7 +102,7 @@ const Create: NextPage = () => {
                 계정을 생성하고 코흐스타그램을 이용해보세요.
               </span>
             </div>
-            <Button text={loading ? "잠시만 기다려주세요" : "가입"}></Button>
+            <Button text={loading ? "로딩중" : "가입"}></Button>
           </form>
         </div>
       </div>

@@ -45,10 +45,12 @@ const ItemDetail: NextPage = () => {
       <div className="px-4  py-4">
         <div className="mb-8 ">
           {data?.tweet.image ? (
-            <img
-              src={`https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${data?.tweet.image}/public`}
-              className="h-96 bg-slate-300 "
-            />
+            <div className="flex justify-center items-center">
+              <img
+                src={`https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${data?.tweet.image}/public`}
+                className="h-96 bg-slate-300 "
+              />
+            </div>
           ) : (
             <div className="h-96 bg-slate-300" />
           )}

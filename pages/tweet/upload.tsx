@@ -107,7 +107,7 @@ const Upload: NextPage = () => {
           name="content"
           type="text"
         />
-        <Button text={loading ? "Loading" : "게시글 작성."} />
+        <Button text={loading ? "로딩중" : "게시글 작성"} />
       </form>
     </Layout>
   );
