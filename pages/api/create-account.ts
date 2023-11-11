@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 
 export interface ResponseType {
   ok: boolean;
+  status?: number;
   [key: string]: any;
 }
 

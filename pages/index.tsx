@@ -5,12 +5,12 @@ import HomeLayout from "../components/HomeLayout";
 import { Tweet } from "@prisma/client";
 import useSWR from "swr";
 
-interface TweetsResponse {
+export interface TweetsResponse {
   ok: boolean;
   tweets: TweetWithCount[];
 }
 
-interface TweetWithCount extends Tweet {
+export interface TweetWithCount extends Tweet {
   _count: {
     favs: number;
   };

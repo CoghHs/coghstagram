@@ -16,10 +16,10 @@ export default function useMutation<T = any>(
     error: undefined,
   });
 
-  function mutation(data: any) {
+  function mutation(data: any, method: string = "POST") {
     setState((prev) => ({ ...prev, loading: true }));
     fetch(url, {
-      method: "POST",
+      method: method,
       headers: {
         "Content-Type": "application/json",
       },
