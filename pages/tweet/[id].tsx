@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import Layout from "../../components/layout";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import Link from "next/link";
+
 import { User } from "@prisma/client";
 import useMutation from "../../lib/client/useMutation";
 import { cls } from "../../lib/client/utils";

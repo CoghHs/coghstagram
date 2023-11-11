@@ -1,6 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import db from "../../lib/server/db";
-import bcrypt from "bcrypt";
 import { withIronSessionApiRoute } from "iron-session/next";
 import { sessionOption } from "../../lib/server/sessionOption";
 
@@ -32,7 +30,7 @@ async function handler(
       }
     )
   ).json();
-  console.log(response);
+  console.log(req);
   res.json({
     ok: true,
     ...response.result,
