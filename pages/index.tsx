@@ -21,11 +21,15 @@ export interface TweetWithCount extends Tweet {
 const Home: NextPage = () => {
   const { data } = useSWR<TweetsResponse>("/api/tweet");
   return (
-    <div>
+    <div className="">
       <Layout title="홈" hasTabBar>
         <CustomUser />
-        <Navbar data={data?.tweets} />
-        <HomeLayout data={data?.tweets} />
+        <div className="z-10 relative">
+          <Navbar data={data?.tweets} />
+        </div>
+        <div className="z-0 relative">
+          <HomeLayout data={data?.tweets} />
+        </div>
       </Layout>
     </div>
   );

@@ -25,6 +25,7 @@ export default function Layout({
   return (
     <div>
       <div className=" w-full h-12 max-w-xl  text-lg  font-medium  fixed text-gray-800 top-0 z-50">
+        <div className="fixed top-0 left-0 opacity-90 bg-white h-10 w-full flex justify-center items-center"></div>
         {canGoBack ? (
           <button onClick={onClick} className="absolute left-4">
             <svg
@@ -45,7 +46,7 @@ export default function Layout({
         ) : null}
         {title ? (
           <div className="flex items-center justify-center ">
-            <div className="py-4">
+            <div className="py-8">
               <Image src={nobg} alt="logo" width={200} height={100} />
             </div>
             {/* <span className={cls(canGoBack ? "w-[120px] h-[40px]" : "", "")}>

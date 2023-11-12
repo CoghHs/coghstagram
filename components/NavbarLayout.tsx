@@ -14,14 +14,15 @@ interface HomeLayoutProps {
 
 export default function Navbar({ data }: HomeLayoutProps) {
   return (
-    <div className="w-full h-full fixed left-0 top-0 mt-10  ">
-      <ul className="flex flex-row overflow-x-auto mb-10 animate-slider absolute space-x-4">
+    <div className="w-full fixed left-0 top-0 mt-10">
+      <div className="w-full bg-white opacity-50 h-56 shadow-xl shadow-white fixed "></div>
+      <ul className="flex flex-row overflow-x-auto mb-10 animate-slider absolute space-x-4 h-48   ">
         {data &&
           data?.length > 0 &&
           data?.map((item) => (
             <Link key={`homeItem_${item.id}`} href={`/tweet/${item.id}`}>
               <li
-                className={`w-80 h-48 border mx-auto overflow-hidden  flex justify-center items-center px-4  rounded-xl`}
+                className={`w-80 h-48 border mx-auto overflow-hidden cursor-pointer  flex justify-center items-center px-4 rounded-xl`}
               >
                 {item.image ? (
                   <div className="relative ">

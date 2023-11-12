@@ -50,11 +50,11 @@ const ItemDetail: NextPage = () => {
             <div className="flex justify-center items-center">
               <img
                 src={`https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${data?.tweet.image}/public`}
-                className="h-96 bg-slate-300 "
+                className=" bg-slate-300 "
               />
             </div>
           ) : (
-            <div className="h-96 bg-slate-300" />
+            <div className="h-96 bg-white flex items-center justify-center font-bold text-xl"></div>
           )}
           <div className="flex cursor-pointer py-3 border-t border-b items-center space-x-3">
             {data?.tweet.user.avatar ? (
@@ -63,7 +63,9 @@ const ItemDetail: NextPage = () => {
                 className="w-12 h-12 rounded-full bg-slate-300"
               />
             ) : (
-              <div className="w-12 h-12 rounded-full bg-slate-300" />
+              <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full bg-slate-300"></div>
+              </div>
             )}
 
             <div className="flex items-center">
@@ -135,17 +137,6 @@ const ItemDetail: NextPage = () => {
             <div className="flex items-center justify-between space-x-2"></div>
           </div>
         </div>
-        {/* <div>
-          <h2 className="text-2xl font-bold text-gray-900">Similar items</h2>
-          <div className=" mt-6 grid grid-cols-2 gap-4">
-            {data?.relatedtweets.map((tweet) => (
-              <Link key={tweet.id} href={`/products/${tweet.id}`}>
-                <div className="h-56 w-full mb-4 bg-slate-300" />
-                <h3 className="text-gray-700 -mb-1">{tweet.name}</h3>
-              </Link>
-            ))}
-          </div>
-        </div> */}
       </div>
     </Layout>
   );

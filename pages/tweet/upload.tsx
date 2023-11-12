@@ -63,7 +63,10 @@ const Upload: NextPage = () => {
   return (
     <Layout canGoBack hasTabBar title="Upload Product">
       <CustomUser />
-      <form onSubmit={handleSubmit(onValid)} className="p-4 space-y-4 mt-20">
+      <form
+        onSubmit={handleSubmit(onValid)}
+        className="p-4 space-y-4 mt-20 px-10"
+      >
         <div>
           {photoPreview ? (
             <img
@@ -98,8 +101,8 @@ const Upload: NextPage = () => {
         <Input
           register={register("name", { required: true })}
           required
-          kind="text"
-          name="name"
+          kind="title"
+          name="title"
           type="text"
         />
         <Input
