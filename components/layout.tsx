@@ -27,7 +27,7 @@ export default function Layout({
       <div className=" w-full h-12 max-w-xl  text-lg  font-medium  fixed text-gray-800 top-0 z-50">
         <div className="fixed top-0 left-0 opacity-90 bg-white h-10 w-full flex justify-center items-center"></div>
         {canGoBack ? (
-          <button onClick={onClick} className="absolute left-4">
+          <button onClick={onClick} className="absolute left-4 mt-10">
             <svg
               className="w-6 h-6"
               fill="none"

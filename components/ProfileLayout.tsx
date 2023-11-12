@@ -16,7 +16,7 @@ interface HomeLayoutProps {
 export default function ProfileLayout({ data, currentUser }: HomeLayoutProps) {
   console.log(currentUser);
   return (
-    <div className="w-full h-full overflow-y-scroll  ">
+    <div className="w-full h-full">
       <div className="flex items-center justify-center h-10">
         <svg
           className="w-5 h-5"
@@ -36,7 +36,7 @@ export default function ProfileLayout({ data, currentUser }: HomeLayoutProps) {
           data?.map((item) => (
             <Link key={`homeItem_${item.id}`} href={`/tweet/${item.id}`}>
               <li
-                className={`w-48 h-48 border mx-auto flex justify-center items-center px-4 cursor-pointer`}
+                className={`w-48  h-48 border mx-auto flex justify-center items-center px-4 cursor-pointer`}
               >
                 {item.image ? (
                   <div className="relative">
@@ -44,11 +44,14 @@ export default function ProfileLayout({ data, currentUser }: HomeLayoutProps) {
                       <img
                         src={`https://imagedelivery.net/2D7iuynfofPUs7N3pYD8rA/${item.image}/bigavatar`}
                         alt={item.name}
+                        className="hover:scale-110 transition-all"
                       />
                     </div>
                   </div>
                 ) : (
-                  <div className="h-48 w-48  relative "></div>
+                  <div className="h-48 w-48 top-2/3 relative text-gray-400">
+                    {item.name}
+                  </div>
                 )}
               </li>
             </Link>
