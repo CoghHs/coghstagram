@@ -13,7 +13,7 @@ interface HomeLayoutProps {
 
 export default function HomeLayout({ data }: HomeLayoutProps) {
   return (
-    <div className="fixed left-0 top-0 w-full h-screen overflow-y-scroll py-64  ">
+    <div className="fixed left-0 top-0 w-full h-screen overflow-y-scroll py-80  ">
       <ul className="grid grid-cols-4 gap-5 gap-y-52 mt-10 justify-center items-center">
         {data &&
           data?.length > 0 &&
