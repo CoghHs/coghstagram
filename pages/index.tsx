@@ -5,6 +5,7 @@ import HomeLayout from "../components/HomeLayout";
 import { Tweet } from "@prisma/client";
 import useSWR from "swr";
 import Navbar from "../components/NavbarLayout";
+import CustomUser from "../components/CustomUser";
 
 export interface TweetsResponse {
   ok: boolean;
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Layout title="홈" hasTabBar>
+        <CustomUser />
         <Navbar data={data?.tweets} />
         <HomeLayout data={data?.tweets} />
       </Layout>

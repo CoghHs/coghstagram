@@ -7,6 +7,7 @@ import useUser from "../../lib/client/useUser";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import useMutation from "../../lib/client/useMutation";
+import CustomUser from "../../components/CustomUser";
 
 interface IForm {
   name?: string;
@@ -82,6 +83,7 @@ const EditProfile: NextPage = () => {
   }, [avatar]);
   return (
     <Layout canGoBack hasTabBar title="Edit Profile">
+      <CustomUser />
       <form className=" space-y-4 mt-20" onSubmit={handleSubmit(onValid)}>
         <div className="flex items-center space-x-3">
           {avatarPreview ? (

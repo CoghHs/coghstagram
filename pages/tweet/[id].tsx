@@ -5,6 +5,7 @@ import useSWR from "swr";
 import { User } from "@prisma/client";
 import useMutation from "../../lib/client/useMutation";
 import { cls } from "../../lib/client/utils";
+import CustomUser from "../../components/CustomUser";
 
 type Tweet = {
   id: number;
@@ -42,6 +43,7 @@ const ItemDetail: NextPage = () => {
 
   return (
     <Layout hasTabBar canGoBack>
+      <CustomUser />
       <div className="px-4  py-4 ">
         <div className="mb-8 ">
           {data?.tweet.image ? (

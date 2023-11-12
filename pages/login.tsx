@@ -33,7 +33,7 @@ const Login: NextPage = () => {
       toast.success("환영합니다!");
       setTimeout(() => {
         router.replace("/");
-      }, 1000);
+      }, 2000);
     }
     if (data?.status === 404) {
       toast.error(data?.message);

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import useMutation from "../../lib/client/useMutation";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import CustomUser from "../../components/CustomUser";
 
 interface UploadTweetForm {
   name: string;
@@ -61,6 +62,7 @@ const Upload: NextPage = () => {
   }, [photo]);
   return (
     <Layout canGoBack hasTabBar title="Upload Product">
+      <CustomUser />
       <form onSubmit={handleSubmit(onValid)} className="p-4 space-y-4 mt-20">
         <div>
           {photoPreview ? (

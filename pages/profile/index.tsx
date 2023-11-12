@@ -9,6 +9,7 @@ import Button from "../../components/Button";
 import { TweetsResponse } from "..";
 import useSWR from "swr";
 import ProfileLayout from "../../components/ProfileLayout";
+import CustomUser from "../../components/CustomUser";
 
 const Profile: NextPage = () => {
   const { data } = useSWR<TweetsResponse>("/api/tweet");
@@ -23,6 +24,7 @@ const Profile: NextPage = () => {
 
   return (
     <Layout hasTabBar title="cogh">
+      <CustomUser />
       <div className="mt-20">
         <div className=" mt-4 space-x-3 flex border-b py-4">
           {user?.avatar ? (
