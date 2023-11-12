@@ -36,8 +36,8 @@ export default function HomeLayout({ data }: HomeLayoutProps) {
                     </div>
                   </div>
                 ) : (
-                  <div className="h-[373px] w-[373px]  relative ">
-                    <div className="absolute bottom-5 left-5">
+                  <div className="h-[373px] w-[373px] border cursor-pointer relative hover:scale-105 transition-all">
+                    <div className="absolute bottom-5 left-5 ">
                       <h3 className="text-2xl font-bold ">{item.name}</h3>
                     </div>
                   </div>
