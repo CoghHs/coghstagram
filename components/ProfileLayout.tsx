@@ -18,7 +18,7 @@ export default function ProfileLayout({ data, currentUser }: HomeLayoutProps) {
   return (
     <div className="w-full h-full overflow-y-scroll  ">
       <div className="flex items-center justify-center h-10">
-        <span className="font-medium">게시물</span>
+        <span className="font-medium">새로운 게시물 보러가기</span>
         <svg
           className="w-5 h-5"
           fill="none"
