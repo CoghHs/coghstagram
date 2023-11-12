@@ -84,7 +84,7 @@ const EditProfile: NextPage = () => {
   return (
     <Layout canGoBack hasTabBar title="Edit Profile">
       <CustomUser />
-      <form className=" space-y-4 mt-20" onSubmit={handleSubmit(onValid)}>
+      <form className=" space-y-4 mt-32" onSubmit={handleSubmit(onValid)}>
         <div className="flex items-center space-x-3">
           {avatarPreview ? (
             <img
